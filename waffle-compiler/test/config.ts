@@ -21,6 +21,29 @@ describe('UNIT: inputToConfig', () => {
     });
   });
 
+  it('deep fill config', () => {
+    const input = {
+      compilerType: 'native',
+      compilerOptions: {},
+      typechain: {
+        enabled: true,
+      },
+    };
+    const output = {
+      compilerType: 'native',
+      compilerOptions: {},
+      typechain: {
+        enabled: true,
+        outputDir: 'types',
+      },
+    };
+
+    expect(inputToConfig(input as any)).to.deep.equal({
+      ...defaultConfig,
+      ...output
+    });
+  });
+
   describe('invalid configs', () => {
     const testCases = [
       {

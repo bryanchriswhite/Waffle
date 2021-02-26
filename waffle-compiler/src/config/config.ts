@@ -43,8 +43,10 @@ export interface Config {
     /** Enable type generation. False by default */
     enabled: boolean;
     /** Target directory for generated types. Relative to outputDirectory */
-    outputDir?: string;
+    outputDir: string;
   };
 }
 
-export type InputConfig = Partial<Config>
+export type DeepPartial<T> = {[P in keyof T]?: DeepPartial<T[P]>};
+
+export type InputConfig = DeepPartial<Config>

@@ -13,6 +13,7 @@ export const defaultConfig: Config = {
   outputHumanReadableAbi: false,
   outputType: 'multiple',
   typechain: {
-    enabled: false
+    enabled: false,
+    outputDir: 'types',
   }
 };
